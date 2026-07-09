@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-hd-bg: #0f172a;       /* fondo general, slate oscuro */
+  --color-hd-surface: #1e293b;  /* tarjetas y paneles */
+  --color-hd-surface-2: #273449;
+  --color-hd-border: #334155;
+  --color-hd-text: #e2e8f0;
+  --color-hd-muted: #94a3b8;
+  --color-hd-primary: #3b82f6;  /* azul, acción principal */
+  --color-hd-success: #22c55e;
+  --color-hd-warning: #f59e0b;
+  --color-hd-danger: #ef4444;
+}
+
+body {
+  margin: 0;
+  background: var(--color-hd-bg);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+}
