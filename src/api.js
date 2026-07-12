@@ -5,7 +5,7 @@
  * Centraliza todas las llamadas HTTP para no repetir fetch() por todos lados.
  */
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://helpdesk-core-pbgv.onrender.com';
 
 /**
  * Wrapper genérico de fetch que maneja errores y JSON automáticamente.

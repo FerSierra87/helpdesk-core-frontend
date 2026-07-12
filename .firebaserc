@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "helpdesk-core-front"
+  },
+  "targets": {
+    "helpdesk-core-front": {
+      "hosting": {
+        "front": [
+          "helpdesk-core-one"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
