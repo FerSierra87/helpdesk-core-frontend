@@ -142,41 +142,44 @@ export default function EquiposView() {
       ) : equipos.length === 0 ? (
         <p className="text-hd-muted text-sm">Todavía no hay equipos cargados.</p>
       ) : (
-        <div className="bg-hd-surface border border-hd-border rounded-xl overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-hd-surface-2 text-hd-muted text-left">
-              <tr>
-                <th className="p-3">ID</th>
-                <th className="p-3">Tipo</th>
-                <th className="p-3">Marca / Modelo</th>
-                <th className="p-3">N° Serie</th>
-                <th className="p-3">Cliente</th>
-                <th className="p-3"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {equipos.map((eq) => (
-                <tr key={eq.id} className="border-t border-hd-border text-hd-text">
-                  <td className="p-3 text-hd-muted">{eq.id}</td>
-                  <td className="p-3 font-medium">{eq.tipo}</td>
-                  <td className="p-3">
-                    {eq.marca} {eq.modelo || ''}
-                  </td>
-                  <td className="p-3">{eq.numeroSerie || '—'}</td>
-                  <td className="p-3">{eq.cliente?.nombre || '—'}</td>
-                  <td className="p-3 text-right">
-                    <button
-                      onClick={() => handleEliminar(eq.id)}
-                      className="text-hd-danger hover:underline text-xs"
-                    >
-                      Eliminar
-                    </button>
-                  </td>
+        <>
+          <div className="bg-hd-surface border border-hd-border rounded-xl overflow-x-auto">
+            <table className="w-full text-sm min-w-[640px]">
+              <thead className="bg-hd-surface-2 text-hd-muted text-left">
+                <tr>
+                  <th className="p-3">ID</th>
+                  <th className="p-3">Tipo</th>
+                  <th className="p-3">Marca / Modelo</th>
+                  <th className="p-3">N° Serie</th>
+                  <th className="p-3">Cliente</th>
+                  <th className="p-3"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {equipos.map((eq) => (
+                  <tr key={eq.id} className="border-t border-hd-border text-hd-text">
+                    <td className="p-3 text-hd-muted">{eq.id}</td>
+                    <td className="p-3 font-medium whitespace-nowrap">{eq.tipo}</td>
+                    <td className="p-3 whitespace-nowrap">
+                      {eq.marca} {eq.modelo || ''}
+                    </td>
+                    <td className="p-3 whitespace-nowrap">{eq.numeroSerie || '—'}</td>
+                    <td className="p-3 whitespace-nowrap">{eq.cliente?.nombre || '—'}</td>
+                    <td className="p-3 text-right whitespace-nowrap">
+                      <button
+                        onClick={() => handleEliminar(eq.id)}
+                        className="text-hd-danger hover:underline text-xs"
+                      >
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[10px] text-hd-muted sm:hidden">← Deslizá para ver todos los datos →</p>
+        </>
       )}
     </div>
   );

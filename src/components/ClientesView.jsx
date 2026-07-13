@@ -105,37 +105,40 @@ export default function ClientesView() {
       ) : clientes.length === 0 ? (
         <p className="text-hd-muted text-sm">Todavía no hay clientes cargados.</p>
       ) : (
-        <div className="bg-hd-surface border border-hd-border rounded-xl overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-hd-surface-2 text-hd-muted text-left">
-              <tr>
-                <th className="p-3">ID</th>
-                <th className="p-3">Nombre</th>
-                <th className="p-3">Email</th>
-                <th className="p-3">Teléfono</th>
-                <th className="p-3"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {clientes.map((c) => (
-                <tr key={c.id} className="border-t border-hd-border text-hd-text">
-                  <td className="p-3 text-hd-muted">{c.id}</td>
-                  <td className="p-3 font-medium">{c.nombre}</td>
-                  <td className="p-3">{c.email}</td>
-                  <td className="p-3">{c.telefono || '—'}</td>
-                  <td className="p-3 text-right">
-                    <button
-                      onClick={() => handleEliminar(c.id)}
-                      className="text-hd-danger hover:underline text-xs"
-                    >
-                      Eliminar
-                    </button>
-                  </td>
+        <>
+          <div className="bg-hd-surface border border-hd-border rounded-xl overflow-x-auto">
+            <table className="w-full text-sm min-w-[560px]">
+              <thead className="bg-hd-surface-2 text-hd-muted text-left">
+                <tr>
+                  <th className="p-3">ID</th>
+                  <th className="p-3">Nombre</th>
+                  <th className="p-3">Email</th>
+                  <th className="p-3">Teléfono</th>
+                  <th className="p-3"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {clientes.map((c) => (
+                  <tr key={c.id} className="border-t border-hd-border text-hd-text">
+                    <td className="p-3 text-hd-muted">{c.id}</td>
+                    <td className="p-3 font-medium whitespace-nowrap">{c.nombre}</td>
+                    <td className="p-3 whitespace-nowrap">{c.email}</td>
+                    <td className="p-3 whitespace-nowrap">{c.telefono || '—'}</td>
+                    <td className="p-3 text-right whitespace-nowrap">
+                      <button
+                        onClick={() => handleEliminar(c.id)}
+                        className="text-hd-danger hover:underline text-xs"
+                      >
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-[10px] text-hd-muted sm:hidden">← Deslizá para ver todos los datos →</p>
+        </>
       )}
     </div>
   );
